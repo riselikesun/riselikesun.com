@@ -28,6 +28,8 @@ export function CoffeeDialog() {
               src="/coffee-me.jpeg"
               alt="Coffee with Suraj"
               fill
+              preload
+              sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover rounded-xl"
             />
           </div>
@@ -46,6 +48,8 @@ export function CoffeeDialog() {
                   src="/coffee-me.jpeg"
                   alt="Coffee with Suraj"
                   fill
+                  preload
+                  sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover rounded-xl"
                 />
               </div>

@@ -78,7 +78,7 @@ export default function IntroSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: .05 }}
         >
           <motion.div variants={itemVariants} className="text-xs font-semibold tracking-[0.35em] uppercase text-primary">
             Full Stack Engineer · Team Lead · India

@@ -29,15 +29,15 @@ const BEYOND_SCREEN_IMAGES = [
 export default function Hobbies() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   useEffect(() => {
     if (!isInView) return;
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % BEYOND_SCREEN_IMAGES.length);
-    }, 4000);
-    
+    }, 3000);
+
     return () => clearInterval(interval);
   }, [isInView]);
 
@@ -106,6 +106,7 @@ export default function Hobbies() {
                 src={BEYOND_SCREEN_IMAGES[currentImageIndex]}
                 alt="Beyond the screen"
                 fill
+                sizes="(max-width: 768px) 100vw, 800px"
                 className="object-contain"
               />
             </motion.div>
