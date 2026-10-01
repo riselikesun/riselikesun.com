@@ -48,6 +48,11 @@ function Dialog({
     [isControlled, onOpenChange]
   )
 
+  const handleOpenChangeRef = React.useRef(handleOpenChange)
+  React.useEffect(() => {
+    handleOpenChangeRef.current = handleOpenChange
+  }, [handleOpenChange])
+
   React.useEffect(() => {
     if (!closeOnBackButton || !open) return
 
@@ -62,7 +67,7 @@ function Dialog({
       if (dialogHistoryStack[dialogHistoryStack.length - 1] !== id) return
       dialogHistoryStack.pop()
       isPoppingRef.current = true
-      handleOpenChange(false)
+      handleOpenChangeRef.current(false)
     }
 
     window.addEventListener("popstate", handlePopState)
@@ -82,7 +87,7 @@ function Dialog({
       }
       isPoppingRef.current = false
     }
-  }, [open, closeOnBackButton, handleOpenChange, id])
+  }, [open, closeOnBackButton, id])
 
   return (
     <DialogPrimitive.Root
