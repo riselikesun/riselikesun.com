@@ -97,9 +97,9 @@ export const experiences: Experience[] = [
 			},
 		],
 		achievements: [
-			'Engineered and launched the AI Detector in just one week, it became an instant success, scaling to millions of users and ranking #2 in Google Search within a month.',
-			'Rapidly developed the Plagiarism Checker, driving significant premium user acquisition and contributing to major business growth.',
-			'Delivered multiple crucial features for the core Paraphraser product that substantially enhanced overall user experience and retention.',
+			'Engineered and launched the AI Detector in just one week, it became an instant success, scaling to 10+ million users and ranking #2 in Google Search within a month.',
+			'Drove a 20% boost in premium user acquisition and contributed 30% to overall quarterly revenue growth by spearheading the end-to-end architecture and quick implementation of a scalable plagiarism checker.',
+			'Architected and deployed Quillbot’s multi-lingual mode across 22+ languages, seamlessly scaling to millions of global users while maintaining 99.9% uptime.',
 		],
 		tech: [
 			techCatalog.typescript,
@@ -274,8 +274,9 @@ export const experiences: Experience[] = [
 			},
 		],
 		achievements: [
-			'Successfully completed the complex migration of 100+ critical applications and services to AWS.',
+			'Successfully completed the complex migration of 100+ critical applications and services to AWS and optimised the infrastructure to reduce yearly operational costs by 70%',
 			'Built strong client trust through technical excellence and communication, securing additional high-value projects for the company.',
+			'Recruited, scaled, and managed a high-performing engineering team of 7, standardizing technical interview rubrics and improving candidate closing rates by 70%.',
 		],
 	},
 	{
