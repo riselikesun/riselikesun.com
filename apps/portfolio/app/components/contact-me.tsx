@@ -29,6 +29,9 @@ const itemVariants: Variants = {
     },
 };
 
+function cleanUrlString(url: string) {
+    return String(url).split("//").pop()?.split("www.").pop() || '';
+}
 
 const contactMethods = [
     {
@@ -37,17 +40,20 @@ const contactMethods = [
         href: `mailto:${config.email}`,
         icon: Mail,
         accent: "text-sky-300",
+        copyLink: config.email,
     },
     {
         label: "GitHub",
-        value: "github.com/riselikesun",
+        value: cleanUrlString(config.github),
+        copyLink: config.github,
         href: config.github,
         icon: Github,
         accent: "text-emerald-300",
     },
     {
         label: "LinkedIn",
-        value: "linkedin.com/in/riselikesun",
+        value: cleanUrlString(config.linkedin),
+        copyLink: config.linkedin,
         href: config.linkedin,
         icon: Linkedin,
         accent: "text-blue-300",
@@ -94,10 +100,11 @@ export default function ContactMe() {
                     viewport={{ once: true, margin: "-50px" }}
                     className="grid gap-5 md:grid-cols-3"
                 >
-                    {contactMethods.map(({ label, value, href, icon: Icon, accent }) => (
+                    {contactMethods.map(({ label, value, href, icon: Icon, accent, copyLink }) => (
                         <a key={label} href={href} target="_blank" rel="noreferrer noopener" title={label}>
                         <MetricCard
                             showExternalIcon
+                            copyLink={copyLink}
                             icon={<Icon />}
                             label={label}
                             value={value}
@@ -115,7 +122,7 @@ export default function ContactMe() {
                     viewport={{ once: true, margin: "-50px" }}
                     variants={itemVariants}
                 >
-                    <Card variant="image" className="border border-primary/20 bg-gradient-to-br from-amber-300/8 via-slate-900 to-slate-900">
+                    <Card variant="image" className="border border-primary/20 bg-linear-to-br from-amber-300/8 via-slate-900 to-slate-900">
                         <CardHeader>
                             <CardTitle className="text-primary text-sm uppercase tracking-[0.24em]" >Response time</CardTitle>
                         </CardHeader>

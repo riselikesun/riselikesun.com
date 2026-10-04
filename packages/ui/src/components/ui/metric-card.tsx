@@ -1,8 +1,11 @@
+"use client";
+
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Copy, Check } from "../icons"
 import { Card } from "./card"
+import { Button } from "./button"
 import { Slot } from "radix-ui"
 
 const metricCardVariants = cva(
@@ -31,6 +34,8 @@ export interface MetricCardProps extends React.ComponentProps<"div">, VariantPro
   showExternalIcon?: boolean;
   /** Optional Tailwind text color class for the icon (e.g. `text-sky-300`). */
   accent?: string;
+  /** If provided, displays a copy icon button at the top right to copy the link or value. */
+  copyLink?: boolean | string;
   /** If true, merges the component onto its immediate child via Radix Slot. */
   asChild?: boolean;
 }
@@ -41,15 +46,37 @@ export interface MetricCardProps extends React.ComponentProps<"div">, VariantPro
  * Acts as a wrapper and can be rendered as a custom element or link using the `asChild` prop.
  */
 const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps & { showExternalIcon?: boolean }>(
-  ({ className, variant, icon, label, value, accent, showExternalIcon, asChild = false, ...props }, ref) => {
+  ({ className, variant, icon, label, value, accent, showExternalIcon, copyLink, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot.Root : "div";
+    const [isCopied, setIsCopied] = React.useState(false);
+
+    const handleCopy = React.useCallback((e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const textToCopy = typeof copyLink === 'string' ? copyLink : value;
+      navigator.clipboard.writeText(textToCopy);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }, [value, copyLink]);
 
     return (
       <Comp
         className={cn("block focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 rounded-[20px]", className)}
         {...props}
       >
-        <Card ref={ref} padding="none" className={cn(metricCardVariants({ variant }), "h-full")}>
+        <Card ref={ref} padding="none" className={cn(metricCardVariants({ variant }), "h-full relative")}>
+          {copyLink && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleCopy}
+              className="absolute right-4 top-4 z-10"
+              aria-label="Copy to clipboard"
+              title="Copy to clipboard"
+            >
+              {isCopied ? <Check className="size-4" /> : <Copy className="size-4" />}
+            </Button>
+          )}
           <div className="flex flex-col h-full p-5">
             <div className="flex flex-row items-center gap-3 sm:flex-col sm:items-start sm:gap-6">
               {icon && (

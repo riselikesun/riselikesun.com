@@ -72,6 +72,8 @@ export default function ExperienceCard({ exp, isFeatured = false }: ExperienceCa
                   title={`Visit ${exp.company.name} website`}
                   variant="highlighted"
                   showExternalIcon="hover"
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   {exp.company.name}
                 </Link>
