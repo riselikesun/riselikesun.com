@@ -17,5 +17,6 @@ export {
     Sprout,
     X,
     CalendarDays,
-    Sun
+    Sun,
+    Copy,
 } from "lucide-react";
