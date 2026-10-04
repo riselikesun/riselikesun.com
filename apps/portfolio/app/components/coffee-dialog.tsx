@@ -54,27 +54,15 @@ export function CoffeeDialog() {
                 />
               </div>
               <Button asChild variant="outline" cursor="pointer">
-                <a
-                  href={config.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Message on LinkedIn
-                </a>
+                <a href={config.linkedin} target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
               </Button>
 
               <Button asChild variant="outline" cursor="pointer">
-                <a href={`mailto:${config.email}`}>Email me</a>
+                <a href={`mailto:${config.email}`} target="_blank" rel="noopener noreferrer">Email me</a>
               </Button>
 
               <Button asChild cursor="pointer" >
-                <a
-                  href={config.calendarURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book a call
-                </a>
+                <a href={config.calendarURL} target="_blank" rel="noopener noreferrer">Book a call</a>
               </Button>
             </div>
           </div>
