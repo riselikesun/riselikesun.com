@@ -1,4 +1,6 @@
+import ChatbaseScript from "@/lib/ChatbaseScript";
 import { HomeAppBar, HeroSection, DirtyHandsSection, Introduction, SkillsSolarSystem, ProfessionalExperience, Hobbies, Footer, ContactMe } from "./components";
+import config from "./config";
 
 export default function Home() {
   return (
@@ -14,6 +16,7 @@ export default function Home() {
         <ContactMe />
       </main>
       <Footer />
+      <ChatbaseScript chatbaseId={config.chatbaseId} />
     </>
   );
 }
