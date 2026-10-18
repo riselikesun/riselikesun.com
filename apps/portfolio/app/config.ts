@@ -6,8 +6,7 @@ const config = {
   email: process.env.NEXT_PUBLIC_EMAIL || "suraj@riselikesun.com",
   linkedin: process.env.NEXT_PUBLIC_LINKEDIN || "https://www.linkedin.com/in/riselikesun/",
   github: process.env.NEXT_PUBLIC_GITHUB || "https://github.com/riselikesun",
-  blobBaseUrl: process.env.NEXT_PUBLIC_BLOB_BASE_URL || "https://ql38x5yvjggsnkzr.public.blob.vercel-storage.com",
-  chatbaseId: process.env.NEXT_PUBLIC_CHATBASE_ID || ""
+  blobBaseUrl: process.env.NEXT_PUBLIC_BLOB_BASE_URL || "https://ql38x5yvjggsnkzr.public.blob.vercel-storage.com"
 };
 
 export default config;
